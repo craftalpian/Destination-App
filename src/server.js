@@ -1,34 +1,41 @@
+// Import dotenv
 require('dotenv').config();
 
-'use strict';
-
+// Import HAPI package
 const Hapi = require('@hapi/hapi');
 
-const server = Hapi.server({
-    port: 3000,
-    host: 'localhost'
-});
+// Import DestinationsAPI
+const DestinationsAPI = require('./api/destinations');
 
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: function () {
-      return 'Hello World!';
-  }
-});
+// Import service
+const DestinationsService = require('./services/DestinationsService');
 
-exports.init = async () => {
-    await server.initialize();
-    return server;
-};
+const init = async () => {
+    // Destinations service
+    const destinationsService = new DestinationsService();
 
-exports.start = async () => {
+    // Set HAPI server config
+    const server = Hapi.server({
+        port: 3000,
+        host: 'localhost',
+    });
+
+    // Register api
+    await server.register([
+        {
+            plugin: DestinationsAPI,
+            options: {
+                destinationsService,
+            }
+        }
+    ]);
+
+    // Start server
     await server.start();
-    console.log(`Server running at: ${server.info.uri}`);
-    return server;
-};
 
-process.on('unhandledRejection', (err) => {
-    console.log(err);
-    process.exit(1);
-});
+    // Server was running
+    console.log(`Server start on ${server.info.uri}`);
+}
+
+// Run
+init();

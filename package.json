@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src",
-    "start-dev": "nodemon -e js,mjs,json,html,hbs,css,scss ./src/app.js"
+    "start-dev": "nodemon -e js,mjs,json,html,hbs,css,scss ./src/server.js"
   },
   "keywords": [],
   "author": "",
