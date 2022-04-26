@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src",
     "start-dev": "nodemon -e js,mjs,json,html,hbs,css,scss ./src/app.js"
   },
   "keywords": [],
@@ -27,6 +28,8 @@
   },
   "devDependencies": {
     "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "nodemon": "^2.0.15"
   }
 }
