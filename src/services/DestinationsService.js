@@ -1,9 +1,10 @@
 const ClientError = require('../exceptions/ClientError');
 const { Destinations } = require('../models');
+const { uploadImageToIMGBB } = require('../utils');
 
 class DestinationsService {
     // Get all destinations
-    async getAllDestinationsService(){
+    async getAllDestinationsService() {
         const data = await Destinations.findAll({
             attributes: ['id', 'name', 'image', 'location', 'website_url', 'instagram_url', 'description'],
             raw: true,
@@ -13,8 +14,8 @@ class DestinationsService {
     }
 
     // Get specific destination by id
-    async getDestinationService(id){
-        if(!id){
+    async getDestinationService(id) {
+        if (!id) {
             throw new ClientError('harap isi id dengan benar');
         }
 
@@ -26,7 +27,7 @@ class DestinationsService {
             raw: true,
         });
 
-        if(!data){
+        if (!data) {
             throw new ClientError('id yang Anda cari tidak ditemukan');
         }
 
@@ -34,11 +35,19 @@ class DestinationsService {
     }
 
     // Update data
-    async putDestinationService(id, { name, image, location, website_url, instagram_url, description }){
+    async putDestinationService(id, { name, image, location, website_url, instagram_url, description }) {
+        let img = image;
+
+        if (image) {
+            // Get url of image
+            const { url } = await uploadImageToIMGBB(image);
+            img = url;
+        }
+
         // Insert data to database
         const update = await Destinations.update({
             name,
-            image,
+            image: img,
             location,
             website_url,
             instagram_url,
@@ -49,8 +58,8 @@ class DestinationsService {
                 id,
             }
         });
-        
-        if(!update[0]){
+
+        if (!update[0]) {
             throw new ClientError('id tidak ditemukan/gagal diperbarui');
         }
     }
@@ -58,14 +67,17 @@ class DestinationsService {
     // Add new destinations
     async addDestinationService({ name, image, location, website_url, instagram_url, description }) {
         // Check data
-        if(!name || !image || !location || !website_url || !instagram_url || !description){
+        if (!name || !image || !location || !website_url || !instagram_url || !description) {
             throw new ClientError('harap isi semua kolom');
         }
+
+        // Get url of image
+        const { url } = await uploadImageToIMGBB(image);
 
         // Insert data to database
         await Destinations.create({
             name,
-            image,
+            image: url,
             location,
             website_url,
             instagram_url,
