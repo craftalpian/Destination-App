@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "43882ce6-bf4e-474b-a954-9326106bd504",
+		"name": "Destination App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[SUCCESS] Insert Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Kota Depok\", \"image\": \"https://berita.depok.go.id/upload/media/entries/2021-11/04/9106-0-695e2dd4b1fb0700c3af7ecc16d81a78.jpg\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan kota penyanggah Ibu Kota\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/destinations",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[FAILED] Insert Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Kota Depok\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/destinations",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[SUCCESS] Update Data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Kota Jakarta\", \"image\": \"https://berita.depok.go.id/upload/media/entries/2021-11/04/9106-0-695e2dd4b1fb0700c3af7ecc16d81a78.jpg\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan Ibu Kota\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/destinations/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[FAILED] Update Data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Kota Depok 1\", \"image\": \"https://berita.depok.go.id/upload/media/entries/2021-11/04/9106-0-695e2dd4b1fb0700c3af7ecc16d81a78.jpg\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan kota penyanggah Ibu Kota\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/destinations/a",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations",
+						"a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[SUCCESS] Get All Destination Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/destinations",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[SUCCESS] Get Specific Destination Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/destinations/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[FAILED] Get Specific Destination Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/destinations/a",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations",
+						"a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[SUCCESS] Remove Specific Destination",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/destinations/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"destinations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000",
+			"type": "default"
+		}
+	]
+}
