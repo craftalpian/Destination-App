@@ -31,6 +31,9 @@ const Destinations = SequelizeModel.define('destinations', {
     instagram_url: {
         type: DataTypes.STRING,
     },
+    description: {
+        type: DataTypes.TEXT,
+    },
     status: {
         type: DataTypes.INTEGER,
     },
