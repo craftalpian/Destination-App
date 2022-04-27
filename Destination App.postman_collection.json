@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\": \"Kota Depok\", \"image\": \"https://berita.depok.go.id/upload/media/entries/2021-11/04/9106-0-695e2dd4b1fb0700c3af7ecc16d81a78.jpg\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan kota penyanggah Ibu Kota\"}",
+					"raw": "{\"name\": \"Kota Depok 2\", \"image\": \"iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVR42mNcLVNbzwAEjDAGACcSA4kB6ARiAAAAAElFTkSuQmCC\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan kota penyanggah Ibu Kota\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -64,7 +64,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\": \"Kota Jakarta\", \"image\": \"https://berita.depok.go.id/upload/media/entries/2021-11/04/9106-0-695e2dd4b1fb0700c3af7ecc16d81a78.jpg\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan Ibu Kota\"}",
+					"raw": "{\"name\": \"Kota Jakarta\", \"image\": \"iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVR42mNcLVNbzwAEjDAGACcSA4kB6ARiAAAAAElFTkSuQmCC\", \"location\": \"Depok, Jawa Barat, Indonesia.\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan Ibu Kota\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -72,13 +72,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/destinations/1",
+					"raw": "{{url}}/destinations/2",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"destinations",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -91,7 +91,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\": \"Kota Depok 1\", \"image\": \"https://berita.depok.go.id/upload/media/entries/2021-11/04/9106-0-695e2dd4b1fb0700c3af7ecc16d81a78.jpg\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan kota penyanggah Ibu Kota\"}",
+					"raw": "{\"name\": \"Kota Depok 1\", \"image\": \"iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVR42mNcLVNbzwAEjDAGACcSA4kB6ARiAAAAAElFTkSuQmCC\", \"location\": \"Depok, Jawa Barat, Indonesia\", \"website_url\": \"https://depok.go.id/\", \"instagram_url\": \"https://www.instagram.com/\", \"description\": \"Merupakan kota penyanggah Ibu Kota\"}",
 					"options": {
 						"raw": {
 							"language": "json"
