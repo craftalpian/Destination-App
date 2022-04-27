@@ -37,6 +37,13 @@ npm run start-dev
 npm run start-prod
 ```
 
+## Tech 💻
+1. [HapiJs](https://hapi.dev/)
+1. MYSQL
+1. Sequelize
+1. [imgbb-uploader](https://www.npmjs.com/package/imgbb-uploader)
+1. dotenv
+
 ## Documentation 📖
 * __[POST] Insert Data__ (/destinations)
 
@@ -157,13 +164,6 @@ _Response data:_
 }
 ```
 
-## Tech 💻
-1. [HapiJs](https://hapi.dev/)
-1. MYSQL
-1. Sequelize
-1. [imgbb-uploader](https://www.npmjs.com/package/imgbb-uploader)
-1. dotenv
-
 ## Requirements ✅
-1. [SQL file]()
+1. [SQL file](https://github.com/craftalpian/Destination-App/blob/main/destination_app.sql)
 1. [POSTMAN file](https://github.com/craftalpian/Destination-App/blob/main/Destination%20App.postman_collection.json) to test API
