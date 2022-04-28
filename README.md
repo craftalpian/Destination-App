@@ -70,7 +70,7 @@ _Request data:_
     "description": "Merupakan kota penyanggah Ibu Kota"
 }
 ```
-*image yang dikirim berupa base64 (gunakan [base64-image.de](https://www.base64-image.de/))
+*image yang dikirim berupa base64 (gunakan [base64-image.de](https://www.base64-image.de/)) atau Anda bisa langsung menggunakan url
 
 _Response data:_
 ```
@@ -98,7 +98,7 @@ _Request data:_
     "description": "Kota Besar"
 }
 ```
-*image yang dikirim berupa base64 (gunakan [base64-image.de](https://www.base64-image.de/))
+*image yang dikirim berupa base64 (gunakan [base64-image.de](https://www.base64-image.de/)) atau Anda bisa langsung menggunakan url
 
 _Response data:_
 ```
