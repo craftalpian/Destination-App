@@ -30,7 +30,7 @@ Buat file `.env` dengan code berikut
 ```
 IMGBB_API=<YOUR-IMGBB-API-KEY>
 ```
-Lakukan konfigurasi database pada file `database.json` dan `.src/models/index.js`
+Lakukan konfigurasi database pada file `database.json` dan `./src/models/index.js`
 Dan yang terakhir adalah lakukan `migrate` dengan perintah berikut
 ```
 db-migrate up
