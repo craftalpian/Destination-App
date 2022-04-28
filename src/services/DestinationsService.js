@@ -71,7 +71,7 @@ class DestinationsService {
   // Add new destinations
   async addDestinationService({ name, image, location, website_url, instagram_url, description }) {
     // Check data
-    if (!name || !image || !location || !website_url || !instagram_url || !description) {
+    if (!name || !image || !location || !description) {
       throw new ClientError('harap isi semua kolom');
     }
 
