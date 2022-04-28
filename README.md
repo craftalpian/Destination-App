@@ -68,7 +68,9 @@ _Response data:_
     "status": "success",
     "code": 200,
     "message": "destinasi berhasil ditambahkan",
-    "data": []
+    "data": {
+        "id": 20
+    }
 }
 ```
 * __[PUT] Update Data__ (/destinations/{id})

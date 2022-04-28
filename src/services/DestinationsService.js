@@ -75,7 +75,7 @@ class DestinationsService {
         const { url } = await uploadImageToIMGBB(image);
 
         // Insert data to database
-        await Destinations.create({
+        const data = await Destinations.create({
             name,
             image: url,
             location,
@@ -83,7 +83,11 @@ class DestinationsService {
             instagram_url,
             description,
             status: 1,
+        }, {
+            raw: true,
         });
+
+        return data.null;
     }
 
     // Delete destinations

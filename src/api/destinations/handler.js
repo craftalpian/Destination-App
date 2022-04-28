@@ -111,13 +111,15 @@ class DestinationsHandler {
     async postDestinationHandler(req, h) {
         try {
             // Send data body (req.payload) to services
-            await this._service.addDestinationService(req.payload);
+            const id = await this._service.addDestinationService(req.payload);
 
             return h.response({
                 status: 'success',
                 code: 200,
                 message: 'destinasi berhasil ditambahkan',
-                data: [],
+                data: {
+                    id,
+                },
             }).code(201);
         } catch (error) {
             // Custom error
