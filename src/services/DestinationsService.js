@@ -1,6 +1,6 @@
 const ClientError = require('../exceptions/ClientError');
 const { Destinations } = require('../models');
-// const { uploadImageToIMGBB } = require('../utils');
+const { uploadImageToIMGBB, validURL } = require('../utils');
 
 class DestinationsService {
   // Get all destinations
@@ -36,20 +36,19 @@ class DestinationsService {
 
   // Update data
   async putDestinationService(id, { name, image, location, website_url, instagram_url, description }) {
-    // let img = image;
+    let img = image;
 
-    // if (image) {
-    //     // Get url of image
-    //     const { url } = await uploadImageToIMGBB(image);
-    //     img = url;
-    // }
+    // Get url of image if image is base64 format
+    if (!validURL(image) && image) {
+      const { url } = await uploadImageToIMGBB(image);
+      img = url;
+    }
 
     // Insert data to database
     const update = await Destinations.update(
       {
         name,
-        // image: img,
-        image,
+        image: img,
         location,
         website_url,
         instagram_url,
@@ -75,15 +74,19 @@ class DestinationsService {
       throw new ClientError('harap isi semua kolom');
     }
 
-    // Get url of image
-    // const { url } = await uploadImageToIMGBB(image);
+    let image_url = image;
+
+    // Get url of image if image is base64 format
+    if (!validURL(image)) {
+      const { url } = await uploadImageToIMGBB(image);
+      image_url = url;
+    }
 
     // Insert data to database
     const data = await Destinations.create(
       {
         name,
-        // image: url,
-        image,
+        image: image_url,
         location,
         website_url,
         instagram_url,
