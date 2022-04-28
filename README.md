@@ -21,9 +21,19 @@ Lalu dilanjutkan dengan
 ```sh
 npm i
 ```
-Dan buat file `.env` dengan code berikut
+Gunakan `db-migrate` dengan perintah
+```sh
+npm i -g db-migrate
+npm i --save db-migrate-mysql
+```
+Buat file `.env` dengan code berikut
 ```
 IMGBB_API=<YOUR-IMGBB-API-KEY>
+```
+Lakukan konfigurasi database pada file `database.json` dan `.src/models/index.js`
+Dan yang terakhir adalah lakukan `migrate` dengan perintah berikut
+```
+db-migrate up
 ```
 
 
@@ -167,5 +177,5 @@ _Response data:_
 ```
 
 ## Requirements ✅
-1. [SQL file](https://github.com/craftalpian/Destination-App/blob/main/destination_app.sql)
+1. [SQL file](https://github.com/craftalpian/Destination-App/blob/main/destination_app.sql) (_optionals_)
 1. [POSTMAN file](https://github.com/craftalpian/Destination-App/blob/main/Destination%20App.postman_collection.json) to test API
