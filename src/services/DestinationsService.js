@@ -1,104 +1,112 @@
 const ClientError = require('../exceptions/ClientError');
 const { Destinations } = require('../models');
-const { uploadImageToIMGBB } = require('../utils');
+// const { uploadImageToIMGBB } = require('../utils');
 
 class DestinationsService {
-    // Get all destinations
-    async getAllDestinationsService() {
-        const data = await Destinations.findAll({
-            attributes: ['id', 'name', 'image', 'location', 'website_url', 'instagram_url', 'description'],
-            raw: true,
-        });
+  // Get all destinations
+  async getAllDestinationsService() {
+    const data = await Destinations.findAll({
+      attributes: ['id', 'name', 'image', 'location', 'website_url', 'instagram_url', 'description'],
+      raw: true,
+    });
 
-        return data;
+    return data;
+  }
+
+  // Get specific destination by id
+  async getDestinationService(id) {
+    if (!id) {
+      throw new ClientError('harap isi id dengan benar');
     }
 
-    // Get specific destination by id
-    async getDestinationService(id) {
-        if (!id) {
-            throw new ClientError('harap isi id dengan benar');
-        }
+    const data = await Destinations.findOne({
+      attributes: ['id', 'name', 'image', 'location', 'website_url', 'instagram_url', 'description'],
+      where: {
+        id,
+      },
+      raw: true,
+    });
 
-        const data = await Destinations.findOne({
-            attributes: ['id', 'name', 'image', 'location', 'website_url', 'instagram_url', 'description'],
-            where: {
-                id
-            },
-            raw: true,
-        });
-
-        if (!data) {
-            throw new ClientError('id yang Anda cari tidak ditemukan');
-        }
-
-        return data;
+    if (!data) {
+      throw new ClientError('id yang Anda cari tidak ditemukan');
     }
 
-    // Update data
-    async putDestinationService(id, { name, image, location, website_url, instagram_url, description }) {
-        let img = image;
+    return data;
+  }
 
-        if (image) {
-            // Get url of image
-            const { url } = await uploadImageToIMGBB(image);
-            img = url;
-        }
+  // Update data
+  async putDestinationService(id, { name, image, location, website_url, instagram_url, description }) {
+    // let img = image;
 
-        // Insert data to database
-        const update = await Destinations.update({
-            name,
-            image: img,
-            location,
-            website_url,
-            instagram_url,
-            description,
-            status: 1,
-        }, {
-            where: {
-                id,
-            }
-        });
+    // if (image) {
+    //     // Get url of image
+    //     const { url } = await uploadImageToIMGBB(image);
+    //     img = url;
+    // }
 
-        if (!update[0]) {
-            throw new ClientError('id tidak ditemukan/gagal diperbarui');
-        }
+    // Insert data to database
+    const update = await Destinations.update(
+      {
+        name,
+        // image: img,
+        image,
+        location,
+        website_url,
+        instagram_url,
+        description,
+        status: 1,
+      },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+
+    if (!update[0]) {
+      throw new ClientError('id tidak ditemukan/gagal diperbarui');
+    }
+  }
+
+  // Add new destinations
+  async addDestinationService({ name, image, location, website_url, instagram_url, description }) {
+    // Check data
+    if (!name || !image || !location || !website_url || !instagram_url || !description) {
+      throw new ClientError('harap isi semua kolom');
     }
 
-    // Add new destinations
-    async addDestinationService({ name, image, location, website_url, instagram_url, description }) {
-        // Check data
-        if (!name || !image || !location || !website_url || !instagram_url || !description) {
-            throw new ClientError('harap isi semua kolom');
-        }
+    // Get url of image
+    // const { url } = await uploadImageToIMGBB(image);
 
-        // Get url of image
-        const { url } = await uploadImageToIMGBB(image);
+    // Insert data to database
+    const data = await Destinations.create(
+      {
+        name,
+        // image: url,
+        image,
+        location,
+        website_url,
+        instagram_url,
+        description,
+        status: 1,
+      },
+      {
+        raw: true,
+      }
+    );
 
-        // Insert data to database
-        const data = await Destinations.create({
-            name,
-            image: url,
-            location,
-            website_url,
-            instagram_url,
-            description,
-            status: 1,
-        }, {
-            raw: true,
-        });
+    return data.null;
+  }
 
-        return data.null;
-    }
-
-    // Delete destinations
-    async deleteDestinationService(id) {
-        // Delete destination from database
-        await Destinations.destroy({
-            where: {
-                id,
-            }
-        });
-    }
+  // Delete destinations
+  async deleteDestinationService(id) {
+    // Delete destination from database
+    await Destinations.destroy({
+      where: {
+        id,
+      },
+    });
+  }
 }
 
 module.exports = DestinationsService;
